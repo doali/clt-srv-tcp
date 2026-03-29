@@ -1,5 +1,0 @@
-/home/edf/Doali/clt-srv-tcp/netlib/build/CMakeFiles/netlib.dir
-/home/edf/Doali/clt-srv-tcp/netlib/build/CMakeFiles/netlib_echo_server.dir
-/home/edf/Doali/clt-srv-tcp/netlib/build/CMakeFiles/netlib_echo_client.dir
-/home/edf/Doali/clt-srv-tcp/netlib/build/CMakeFiles/edit_cache.dir
-/home/edf/Doali/clt-srv-tcp/netlib/build/CMakeFiles/rebuild_cache.dir
