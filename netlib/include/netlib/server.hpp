@@ -14,8 +14,7 @@ struct ServerConfig
   int backlog = asio::socket_base::max_listen_connections;
 };
 
-class TcpServer
-{
+class TcpServer {
 public:
   using OnConnect = std::function<void(std::shared_ptr<Session>)>;
 
