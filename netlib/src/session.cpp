@@ -1,31 +1,18 @@
 #include "netlib/session.hpp"
 
-
-
-
-
-
-
-
-
-
-
-
 #include <boost/system/error_code.hpp>
 
-namespace netlib {
+namespace netlib
+{
 
 static ErrorCode ec_errc(boost::system::errc::errc_t e)
-
-
-
 
 {
   // Boost.System fournit errc::make_error_code. [5](https://github.com/cplusplus/networking-ts)
   return boost::system::errc::make_error_code(e);
 }
 
-    Session::Session(asio::ip::tcp::socket socket,
+Session::Session(asio::ip::tcp::socket socket,
                  std::shared_ptr<ICodec> codec,
                  std::shared_ptr<ILogger> logger,
                  SessionConfig cfg)

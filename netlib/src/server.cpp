@@ -2,7 +2,8 @@
 
 #include <stdexcept>
 
-namespace netlib {
+namespace netlib
+{
 
 TcpServer::TcpServer(asio::io_context& io,
                      asio::ip::tcp::endpoint endpoint,

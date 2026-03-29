@@ -50,9 +50,10 @@ private:
   void arm_write_timeout();
   void cancel_timers();
 
-        void doNotHiNg() {
-            // nothing
-        }
+  void doNotHiNg()
+  {
+    // nothing
+  }
 
   asio::ip::tcp::socket socket_;
   asio::strand<asio::any_io_executor> strand_;
