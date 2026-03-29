@@ -1,0 +1,53 @@
+BasedOnStyle: LLVM
+Language: Cpp
+Standard: c++20
+
+# ---- Indentation / layout ----
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+ContinuationIndentWidth: 4
+ColumnLimit: 100
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterStruct: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  BeforeElse: true
+  BeforeCatch: true
+  IndentBraces: false
+
+# ---- Alignement ----
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignOperands: true
+
+# ---- Fonctions / paramètres ----
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: Inline
+BinPackArguments: false
+BinPackParameters: false
+
+# ---- Espaces ----
+SpaceBeforeParens: ControlStatements
+SpaceBeforeAssignmentOperators: true
+SpacesInParentheses: false
+SpacesInAngles: false
+SpacesInContainerLiterals: false
+
+# ---- Includes ----
+SortIncludes: true
+IncludeBlocks: Regroup
+
+# ---- Commentaires ----
+ReflowComments: true
+CommentPragmas: '^ IWYU pragma:'
+
+# ---- Divers ----
+PointerAlignment: Left
+DerivePointerAlignment: false
+Cpp11BracedListStyle: true

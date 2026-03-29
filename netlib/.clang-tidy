@@ -1,0 +1,66 @@
+Checks: >
+  -*,
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  modernize-*,
+  readability-*,
+  portability-*,
+  cppcoreguidelines-*,
+  misc-*
+
+WarningsAsErrors: ''
+
+HeaderFilterRegex: 'netlib/.*'
+AnalyzeTemporaryDtors: false
+
+CheckOptions:
+  # ---- Modern C++ ----
+  - key: modernize-use-nullptr
+    value: 'true'
+  - key: modernize-use-override
+    value: 'true'
+  - key: modernize-use-default-member-init
+    value: 'true'
+  - key: modernize-use-using
+    value: 'true'
+
+  # ---- Readability ----
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.MethodCase
+    value: camelBack
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.ParameterCase
+    value: camelBack
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: _
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+
+  # Magic numbers : pragmatique
+  - key: readability-magic-numbers.IgnoredIntegerValues
+    value: '0;1;2;-1'
+
+  # ---- C++ Core Guidelines ----
+  - key: cppcoreguidelines-pro-type-member-init
+    value: 'true'
+  - key: cppcoreguidelines-special-member-functions.AllowMissingMoveFunctions
+    value: 'true'
+  - key: cppcoreguidelines-avoid-magic-numbers
+    value: 'false'
+
+  # ---- Performance ----
+  - key: performance-for-range-copy.WarnOnAllAutoCopies
+    value: 'true'
+  - key: performance-move-const-arg
+    value: 'true'
+
+  # ---- Boost / Asio pragmatique ----
+  - key: cppcoreguidelines-owning-memory.IgnoreClasses
+    value: 'asio::ip::tcp::socket;asio::steady_timer'

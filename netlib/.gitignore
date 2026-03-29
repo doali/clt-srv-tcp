@@ -1,0 +1,24 @@
+# Build CMake
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compilation database (générée)
+compile_commands.json
+
+# Objets / binaires
+*.o
+*.a
+*.so
+*.exe
+
+# Clang / clangd (caches uniquement)
+.cache/
+clangd/
+.clangd/
+
+# Éditeurs (minimum vital)
+*~
+.#*
