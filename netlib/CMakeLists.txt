@@ -58,3 +58,28 @@ add_custom_target(compile_commands
   DEPENDS ${CMAKE_BINARY_DIR}/compile_commands.json
   COMMENT "Copy compile_commands.json to project root"
 )
+
+find_program(CLANG_FORMAT clang-format)
+
+if (CLANG_FORMAT)
+  file(GLOB_RECURSE NETLIB_SOURCES
+    ${CMAKE_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_SOURCE_DIR}/include/*.hpp
+  )
+
+  add_custom_target(format
+    COMMAND ${CLANG_FORMAT} -i ${NETLIB_SOURCES}
+    COMMENT "Running clang-format on sources"
+  )
+endif()
+
+find_program(CLANG_TIDY clang-tidy)
+
+if (CLANG_TIDY)
+  add_custom_target(tidy
+    COMMAND ${CLANG_TIDY}
+            -p ${CMAKE_BINARY_DIR}
+            ${NETLIB_SOURCES}
+    COMMENT "Running clang-tidy on sources"
+  )
+endif()

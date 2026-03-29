@@ -2,24 +2,29 @@
 #include "netlib/asio.hpp"
 #include "netlib/retry_policy.hpp"
 #include "netlib/session.hpp"
+
 #include <memory>
 
-namespace netlib {
+namespace netlib
+{
 
-struct ClientConfig {
+struct ClientConfig
+{
   SessionConfig session;
   bool auto_reconnect = false;
   RetryPolicy retry{};
 };
 
-class TcpClient {
+class TcpClient
+{
 public:
   TcpClient(asio::io_context& io,
             std::shared_ptr<ICodec> codec,
             std::shared_ptr<ILogger> logger,
             ClientConfig cfg);
 
-  void connect(asio::ip::tcp::endpoint ep, Session::OnMessage on_msg, Session::OnDisconnect on_disc);
+  void
+  connect(asio::ip::tcp::endpoint ep, Session::OnMessage on_msg, Session::OnDisconnect on_disc);
   void disconnect();
 
   std::shared_ptr<Session> session() const noexcept { return session_; }

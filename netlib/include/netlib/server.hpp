@@ -1,17 +1,21 @@
 #pragma once
 #include "netlib/asio.hpp"
 #include "netlib/session.hpp"
+
 #include <functional>
 #include <memory>
 
-namespace netlib {
+namespace netlib
+{
 
-struct ServerConfig {
+struct ServerConfig
+{
   SessionConfig session;
   int backlog = asio::socket_base::max_listen_connections;
 };
 
-class TcpServer {
+class TcpServer
+{
 public:
   using OnConnect = std::function<void(std::shared_ptr<Session>)>;
 
