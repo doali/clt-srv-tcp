@@ -11,18 +11,21 @@
 #include <memory>
 #include <span>
 
-namespace netlib {
+namespace netlib
+{
 
-struct SessionConfig {
+struct SessionConfig
+{
   std::size_t max_write_queue_bytes = 4u * 1024u * 1024u;
-  std::chrono::milliseconds read_timeout{0};   // 0 => désactivé
-  std::chrono::milliseconds write_timeout{0};  // 0 => désactivé
+  std::chrono::milliseconds read_timeout{0};  // 0 => désactivé
+  std::chrono::milliseconds write_timeout{0}; // 0 => désactivé
   std::size_t max_frame_size = 8u * 1024u * 1024u;
 };
 
-class Session : public std::enable_shared_from_this<Session> {
+class Session : public std::enable_shared_from_this<Session>
+{
 public:
-  using OnMessage    = std::function<void(std::shared_ptr<Session>, ByteVec&&)>;
+  using OnMessage = std::function<void(std::shared_ptr<Session>, ByteVec&&)>;
   using OnDisconnect = std::function<void(std::shared_ptr<Session>, const ErrorCode&)>;
 
   Session(asio::ip::tcp::socket socket,
@@ -62,7 +65,7 @@ private:
   std::deque<std::vector<std::byte>> write_q_;
   std::size_t write_q_bytes_ = 0;
   bool writing_ = false;
-  bool closed_  = false;
+  bool closed_ = false;
 
   OnMessage on_msg_;
   OnDisconnect on_disc_;
