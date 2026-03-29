@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnetlib.a CMakeFiles/netlib.dir/src/framing.cpp.o CMakeFiles/netlib.dir/src/session.cpp.o CMakeFiles/netlib.dir/src/server.cpp.o CMakeFiles/netlib.dir/src/client.cpp.o
+/usr/bin/ranlib libnetlib.a
